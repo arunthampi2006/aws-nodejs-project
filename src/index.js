@@ -207,8 +207,8 @@ const setActualValue = (str, key) => {
   return typeof str === 'string' && skipPlusCharStr(key) ? str.replace(/\+/g, ' ') : str
 }
 const skipPlusCharStr = key => {
-  let skipKey = ['metadata', 'timezone']
-  return !_.filter(skipKey, sk => _.includes(key, sk)).length
+  let skipKeys = ['metadata', 'timezone']
+  return !_.filter(skipKeys, sk => _.includes(key, sk)).length
 }
 
 const populateCustomDomains = (kl, mo) => {
