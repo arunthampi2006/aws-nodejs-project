@@ -204,7 +204,11 @@ const setEventObj = (keysList, mandrilObj, etType) => {
 }
 
 const setActualValue = (str, key) => {
-  return typeof str === 'string' && !_.includes(key, 'metadata') ? str.replace(/\+/g, ' ') : str
+  return typeof str === 'string' && skipPlusCharStr(key) ? str.replace(/\+/g, ' ') : str
+}
+const skipPlusCharStr = key => {
+  let skipKey = ['metadata', 'timezone']
+  return !_.filter(skipKey, sk => _.includes(key, sk)).length
 }
 
 const populateCustomDomains = (kl, mo) => {
