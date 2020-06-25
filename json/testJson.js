@@ -10,7 +10,13 @@ export function mandrillBody () { return [
       opens: [],
       clicks: [],
       state: 'sent',
-      metadata: [Object],
+      metadata: {
+        'enc-consumer-id': 'WwseOSAi5leSV4+SIbU8+g==',
+        'event-instance-id': 1736,
+        'partner-id': 1,
+        'neon-webhook-api-addr': 'http://b2f06ff2b988.ngrok.io/',
+        'neon-webhook-api-key': 'kng123'
+      },
       _id: 'exampleaaaaaaaaaaaaaaaaaaaaaaaaa',
       _version: 'exampleaaaaaaaaaaaaaaa'
     },
@@ -26,7 +32,13 @@ export function mandrillBody () { return [
       sender: 'example.sender@mandrillapp.com',
       tags: [Array],
       state: 'bounced',
-      metadata: [Object],
+      metadata: {
+        'enc-consumer-id': 'WwseOSAi5leSV4+SIbU8+g==',
+        'event-instance-id': 1736,
+        'partner-id': 1,
+        'neon-webhook-api-addr': 'http://b2f06ff2b988.ngrok.io/',
+        'neon-webhook-api-key': 'kng123'
+      },
       _id: 'exampleaaaaaaaaaaaaaaaaaaaaaaaaa1',
       _version: 'exampleaaaaaaaaaaaaaaa',
       bounce_description: 'bad_mailbox',
@@ -45,7 +57,13 @@ export function mandrillBody () { return [
       sender: 'example.sender@mandrillapp.com',
       tags: [Array],
       state: 'soft-bounced',
-      metadata: [Object],
+      metadata: {
+        'enc-consumer-id': 'WwseOSAi5leSV4+SIbU8+g==',
+        'event-instance-id': 1736,
+        'partner-id': 1,
+        'neon-webhook-api-addr': 'http://b2f06ff2b988.ngrok.io/',
+        'neon-webhook-api-key': 'kng123'
+      },
       _id: 'exampleaaaaaaaaaaaaaaaaaaaaaaaaa2',
       _version: 'exampleaaaaaaaaaaaaaaa',
       bounce_description: 'mailbox_full',
@@ -66,7 +84,13 @@ export function mandrillBody () { return [
       opens: [Array],
       clicks: [Array],
       state: 'sent',
-      metadata: [Object],
+      metadata: {
+        'enc-consumer-id': 'WwseOSAi5leSV4+SIbU8+g==',
+        'event-instance-id': 1736,
+        'partner-id': 1,
+        'neon-webhook-api-addr': 'http://b2f06ff2b988.ngrok.io/',
+        'neon-webhook-api-key': 'kng123'
+      },
       _id: 'exampleaaaaaaaaaaaaaaaaaaaaaaaaa3',
       _version: 'exampleaaaaaaaaaaaaaaa'
     },
@@ -113,7 +137,13 @@ export function mandrillBody () { return [
       opens: [Array],
       clicks: [Array],
       state: 'sent',
-      metadata: [Object],
+      metadata: {
+        'enc-consumer-id': 'WwseOSAi5leSV4+SIbU8+g==',
+        'event-instance-id': 1736,
+        'partner-id': 1,
+        'neon-webhook-api-addr': 'http://b2f06ff2b988.ngrok.io/',
+        'neon-webhook-api-key': 'kng123'
+      },
       _id: 'exampleaaaaaaaaaaaaaaaaaaaaaaaaa4',
       _version: 'exampleaaaaaaaaaaaaaaa'
     },

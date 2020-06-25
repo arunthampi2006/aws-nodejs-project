@@ -83,8 +83,8 @@ const childKeys = {
     {key: 'msg.clicks.url', eventKey: 'subDomain2', eventType: [2]}
   ],
   metadata: [
-    {key: 'msg.metadata.enc_msisdn', eventType: [1,2,3,4,5], eventKey: 'consumerId'}, 
-    {key: 'msg.metadata.event_instance_id', eventType: [1,2,3,4,5], eventKey: 'eventInstanceId'}
+    {key: 'msg.metadata.enc-consumer-id', eventType: [1,2,3,4,5], eventKey: 'consumerId'}, 
+    {key: 'msg.metadata.event-instance-id', eventType: [1,2,3,4,5], eventKey: 'eventInstanceId'}
   ]
 }
 
@@ -176,7 +176,7 @@ const setEventObj = (keysList, mandrilObj, etType) => {
           if (mandrilChildObj && _.isArray(mandrilChildObj[ck])) {
             mandrilChildObj = mandrilChildObj[ck][0]
           } else {
-            mandrilChildObj = mandrilChildObj ? setActualValue(mandrilChildObj[ck]) : null
+            mandrilChildObj = mandrilChildObj ? mandrilChildObj[ck] : null
           }
           if (mandrilChildObj && ck === 'diag') {
             let diag = mandrilChildObj.split(';')[1];
@@ -185,14 +185,14 @@ const setEventObj = (keysList, mandrilObj, etType) => {
           }
         })
         if (typeChk) {
-          eventObj[kl.eventKey] = setActualValue(mandrilChildObj)
+          eventObj[kl.eventKey] = setActualValue(mandrilChildObj, kl.key)
         }
       } else {
         if (typeChk) {
           if (kl.keys && kl.keys.length) {
             eventObj[kl.eventKey] = populateCustomDomains(kl, mandrilObj)
           } else {
-            eventObj[kl.eventKey] = setActualValue(mandrilObj[kl.key])
+            eventObj[kl.eventKey] = setActualValue(mandrilObj[kl.key], kl.key)
           }
         }
       }
@@ -203,8 +203,8 @@ const setEventObj = (keysList, mandrilObj, etType) => {
   })
 }
 
-const setActualValue = str => {
-  return typeof str === 'string' ? str.replace(/\+/g, ' ') : str
+const setActualValue = (str, key) => {
+  return typeof str === 'string' && !_.includes(key, 'metadata') ? str.replace(/\+/g, ' ') : str
 }
 
 const populateCustomDomains = (kl, mo) => {
@@ -212,7 +212,7 @@ const populateCustomDomains = (kl, mo) => {
   let ua = mo[kl.key]
   let objKey = 'Domain'
   let idx = 4
-  _.map(kl.keys, (key, i) => cd[objKey + (idx + i)] = setActualValue(ua[key]))
+  _.map(kl.keys, (key, i) => cd[objKey + (idx + i)] = setActualValue(ua[key], kl.key))
   return cd;
 }
 generateEventObj()
