@@ -180,7 +180,7 @@ const setEventObj = (keysList, mandrilObj, etType) => {
           }
           if (mandrilChildObj && ck === 'diag') {
             let diag = mandrilChildObj.split(';')[1];
-            diag = diag.split(' ')[0]
+            diag = diag.split('+')[0]
             mandrilChildObj = diag
           }
         })
